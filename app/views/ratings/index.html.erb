@@ -2,6 +2,8 @@
 <p> Number of ratings: <%= @ratings.count %> </p>
 <ul>
  <% @ratings.each do |rating| %>
-   <li> <%= rating.beer.name %> <%= rating.to_s %> </li>
+   <li>    		 
+   		<%= rating.to_s %> 
+   </li>
  <% end %>
 </ul>
