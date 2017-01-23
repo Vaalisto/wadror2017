@@ -17,3 +17,8 @@ b2.beers.create name:"Huvila Pale Ale", style:"Pale Ale"
 b2.beers.create name:"X Porter", style:"Porter"
 b3.beers.create name:"Hefeweizen", style:"Weizen"
 b3.beers.create name:"Helles", style:"Lager"
+b = Beer.find(1)
+b.ratings.create score:10
+b.ratings.create score:20
+b = Beer.find(2)
+b.ratings.create score:15
