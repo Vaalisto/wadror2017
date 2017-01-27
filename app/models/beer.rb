@@ -6,4 +6,8 @@ class Beer < ActiveRecord::Base
 		return ratings.average(:score)
 	end
 
+	def to_s
+		"#{name}, #{brewery.name}"
+	end
+
 end
