@@ -1,4 +1,5 @@
 class Brewery < ActiveRecord::Base
+	include RatingAverage
 	has_many :beers, dependent: :destroy
 	has_many :ratings, through: :beers
 
@@ -6,10 +7,6 @@ class Brewery < ActiveRecord::Base
 		puts name
 		puts "established at year #{year}"
 		puts "number of beers #{beers.count}"
-	end
-
-	def average_rating
-		return ratings.average(:score)
 	end
 
 	def restart
