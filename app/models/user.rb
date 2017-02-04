@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
 	include RatingAverage
-	validates :username, uniqueness: true,
-						length: { in: 3..30 }
+
 	has_many :ratings
 	has_many :beers, through: :ratings
-	
+
+	has_secure_password
+
+	validates :username, uniqueness: true,
+						length: { in: 3..30 }
+	validates :password, format: { with: /\A(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}\z/ } 	
+
 end
