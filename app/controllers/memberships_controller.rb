@@ -1,21 +1,45 @@
 class MembershipsController < ApplicationController
 	def index
-    @memberships = Membership.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @memberships }
-    end
+    @membership = Membership.all
   end
 
   # GET /memberships/1
   # GET /memberships/1.json
-  def show
-    @membership = Membership.find(params[:id])
+  def show    
+  end
+
+  def new
+    @membership = Membership.new
+    @beer_clubs = BeerClub.all
+  end
+
+  def edit    
+  end
+
+  def create
+    @membership = Membership.new(membership_params)
+    @membership.user_id = current_user.id
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @membership }
+      if @membership.save
+        format.html { redirect_to :back, notice: 'Membership was successfully created.' }
+        format.json { render json: @membership, status: :created, location: @membership }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @membership.errors, status: :unprocessable_entity }
+      end
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_membership
+      @membership = Membership.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def membership_params
+      params.require(:membership).permit(:user_id, :beer_club_id, :confirmed)
+    end
+
 end

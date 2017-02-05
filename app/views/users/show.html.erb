@@ -9,6 +9,12 @@
 </p>
 
 <p>
+	Member of <% @user.memberships.each do |club| %>
+		<%= link_to club.to_s, beer_club_path(club.id) %>
+		<% end %>
+</p>
+
+<p>
 	<h3>ratings</h3>
 </p>
 
