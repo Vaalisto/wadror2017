@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
 	validates :username, uniqueness: true,
 						length: { in: 3..30 }
-	validates :password, format: { with: /\A(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}\z/ } 	
+	validates :password, length: { minimum: 4 }
+	validates :password, format: { with: /([A-Z].*\d)|(\d.*[A-Z].*)/, message: "should contain one number and one capital letter" } 	
 
 end
