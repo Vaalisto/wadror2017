@@ -57,15 +57,34 @@ RSpec.describe User, type: :model do
   	end
 
   	it "is the one with highest rating if several rated" do
-  		beer1 = FactoryGirl.create(:beer)
-  		beer2 = FactoryGirl.create(:beer)
-  		beer3 = FactoryGirl.create(:beer)
-  		rating1 = FactoryGirl.create(:rating, beer:beer1, user:user)
-  		rating2 = FactoryGirl.create(:rating, score:25, beer:beer2, user:user)
-  		rating3 = FactoryGirl.create(:rating, score:9, beer:beer3, user:user)
+  		create_beers_with_ratings(user, 10, 15, 9)
+  		best = create_beer_with_rating(user, 25)
 
-  		expect(user.favorite_beer).to eq(beer2)
+  		expect(user.favorite_beer).to eq(best)
+  	end
+
+  	it "favorite style is Lager" do
+  		create_beers_with_ratings(user, 10, 15, 9, 25)
+
+  		expect(user.favorite_style).to eq("Lager")
+  	end
+
+  	it "favorite brewery is anonymous" do
+  		create_beers_with_ratings(user, 10, 15, 9, 25)
+  		expect(user.favorite_brewery).to eq("anonymous")
   	end
 
   end
+end
+
+def create_beers_with_ratings(user, *scores)
+  scores.each do |score|
+    create_beer_with_rating user, score
+  end
+end
+
+def create_beer_with_rating(user, score)
+  beer = FactoryGirl.create(:beer)
+  FactoryGirl.create(:rating, score:score,  beer:beer, user:user)
+  beer
 end
