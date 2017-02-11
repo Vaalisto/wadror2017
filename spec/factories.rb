@@ -5,6 +5,12 @@ FactoryGirl.define do
     password_confirmation "Foobar1"
   end
 
+  factory :user2 do
+    username "Seppo"
+    password "Salis1"
+    password_confirmation "Salis1"
+  end
+
   factory :rating do
     score 10
   end

@@ -3,8 +3,12 @@ require 'rails_helper'
 include Helpers
 
 describe "User" do
-  before :each do
-    FactoryGirl.create :user
+  let!(:user) { FactoryGirl.create :user }  
+  let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
+  let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", brewery:brewery }
+
+
+  before :each do    
   end
 
   describe "who has signed up" do
@@ -34,5 +38,20 @@ describe "User" do
         click_button('Create User')
       }.to change{User.count}.by(1)
     end
+  end
+
+  describe "user page" do
+    
+
+    it "ratings are shown on user page" do
+      @rates = [10, 10, 10, 20, 20]
+      @rates.each do |rate|
+        user.ratings << FactoryGirl.create(:rating, score: rate, beer:beer1, user:user)
+      end
+      visit user_path(user)
+
+      expect(page).to have_content 'Has made 5 ratings'
+
+    end    
   end
 end
