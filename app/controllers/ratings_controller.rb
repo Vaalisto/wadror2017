@@ -14,7 +14,7 @@ class RatingsController < ApplicationController
     
     if current_user.nil?
       redirect_to signin_path, notice:'Please, sign in'
-    elseif @rating.save
+    elsif @rating.save
       current_user.ratings << @rating
   	  redirect_to user_path current_user
     else
