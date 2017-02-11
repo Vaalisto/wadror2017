@@ -8,6 +8,7 @@ describe "Rating" do
   let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery }
   let!(:user) { FactoryGirl.create :user }
 
+
   before :each do
     sign_in(username:"Pekka", password:"Foobar1")
   end
@@ -25,4 +26,15 @@ describe "Rating" do
     expect(beer1.ratings.count).to eq(1)
     expect(beer1.average_rating).to eq(15.0)
   end
+
+  it "number of ratings is shown right" do
+    @rates = [10, 10, 10, 20, 20]
+    @rates.each do |rate|
+      user.ratings << FactoryGirl.create(:rating, score: rate, beer:beer1, user:user)
+    end     
+    visit ratings_path
+
+    expect(page).to have_content 'Number of ratings: 5'
+  end
+
 end
