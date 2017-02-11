@@ -3,9 +3,14 @@ require 'rails_helper'
 include Helpers
 
 describe "Beers page" do
-  let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }  
+  let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" } 
+  let!(:user) { FactoryGirl.create :user }
+
+  before :each do
+    sign_in(username:"Pekka", password:"Foobar1")
+  end
   
-  it "a new beer is added when valid name is given" do
+  it "a new beer is added when valid name is given" do    
   	visit new_beer_path
   	fill_in('beer_name', with:"Iso 3")
   	select('Lager', from:'beer[style]')
