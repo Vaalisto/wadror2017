@@ -6,6 +6,7 @@ describe "User" do
   let!(:user) { FactoryGirl.create :user }  
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
   let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", brewery:brewery }
+  let!(:beer2) { FactoryGirl.create :beer, name:"pieni 4", brewery:brewery }
 
 
   before :each do    
@@ -51,7 +52,21 @@ describe "User" do
       visit user_path(user)
 
       expect(page).to have_content 'Has made 5 ratings'
+      expect(page).to have_content 'iso 3'
 
-    end    
+    end
+
+    it "ratings are deleted from user page" do
+      user.ratings << FactoryGirl.create(:rating, score: 10, beer:beer1, user:user)
+      user.ratings << FactoryGirl.create(:rating, score: 10, beer:beer2, user:user)
+      visit signin_path
+      sign_in(username:"Pekka", password:"Foobar1")
+      visit user_path(user)
+
+      expect(page).to have_content 'Has made 2 ratings'
+      page.find('li', :text => 'pieni 4 10 delete').click_link('delete')
+      expect(page).to_not have_content 'pieni 4'
+    end
+
   end
 end
