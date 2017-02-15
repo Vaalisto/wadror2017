@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :breweries
   resource :session, only: [:new, :create, :destroy]
   resources :ratings, only: [:index, :new, :create, :destroy]
+  resources :places, only: [:index, :show]
   root 'breweries#index'
   get 'kaikki_bisset', to: 'beers#index'
   get 'signup', to: 'users#new'

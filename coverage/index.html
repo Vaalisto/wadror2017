@@ -14,14 +14,14 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-02-15T18:05:52+02:00">2017-02-15T18:05:52+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-02-15T23:33:18+02:00">2017-02-15T23:33:18+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">47.45%</span></span>
+    (<span class="covered_percent"><span class="red">47.47%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>23</b> files in total.
-    <b>392</b> relevant lines. 
-    <span class="green"><b>186</b> lines covered</span> and
-    <span class="red"><b>206</b> lines missed </span>
+    <b>396</b> relevant lines. 
+    <span class="green"><b>188</b> lines covered</span> and
+    <span class="red"><b>208</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -102,12 +102,12 @@
       
       <tr>
         <td class="strong"><a href="#6aa3b3663b48c62e5532d5c3e913ee436c6d5d0e" class="src_link" title="app/controllers/places_controller.rb">app/controllers/places_controller.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>13</td>
-        <td>7</td>
-        <td>7</td>
-        <td>0</td>
-        <td>1.7</td>
+        <td class="yellow strong">81.82 %</td>
+        <td>19</td>
+        <td>11</td>
+        <td>9</td>
+        <td>2</td>
+        <td>1.4</td>
       </tr>
       
       <tr>
@@ -289,7 +289,7 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">34.85%</span></span>
+    (<span class="covered_percent"><span class="red">35.05%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -300,9 +300,9 @@
   <a name="Controllers"></a>
   <div>
     <b>9</b> files in total.
-    <b>307</b> relevant lines. 
-    <span class="green"><b>107</b> lines covered</span> and
-    <span class="red"><b>200</b> lines missed </span>
+    <b>311</b> relevant lines. 
+    <span class="green"><b>109</b> lines covered</span> and
+    <span class="red"><b>202</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -370,12 +370,12 @@
       
       <tr>
         <td class="strong"><a href="#6aa3b3663b48c62e5532d5c3e913ee436c6d5d0e" class="src_link" title="app/controllers/places_controller.rb">app/controllers/places_controller.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>13</td>
-        <td>7</td>
-        <td>7</td>
-        <td>0</td>
-        <td>1.7</td>
+        <td class="yellow strong">81.82 %</td>
+        <td>19</td>
+        <td>11</td>
+        <td>9</td>
+        <td>2</td>
+        <td>1.4</td>
       </tr>
       
       <tr>
@@ -2797,11 +2797,11 @@
         <div class="source_table" id="6aa3b3663b48c62e5532d5c3e913ee436c6d5d0e">
   <div class="header">
     <h3>app/controllers/places_controller.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="yellow">81.82 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>11</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
   
@@ -2835,52 +2835,88 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">  def search</code>
+          <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="6">
-          <span class="hits">3</span>
+        <li class="missed" data-hits="0" data-linenumber="6">
           
-          <code class="ruby">    @places = BeermappingApi.places_in(params[:city])</code>
+          
+          <code class="ruby">    cached_places = Rails.cache.read(session[:last_city])</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="7">
-          <span class="hits">3</span>
+        <li class="missed" data-hits="0" data-linenumber="7">
           
-          <code class="ruby">    if @places.empty?</code>
+          
+          <code class="ruby">    @place = cached_places.find{ |p| p.id == params[:id]}</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      redirect_to places_path, notice: &quot;No locations in #{params[:city]}&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="10">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      render :index</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def search</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="11">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @places = BeermappingApi.places_in(params[:city])</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    if @places.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      redirect_to places_path, notice: &quot;No locations in #{params[:city]}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      session[:last_city] = params[:city]</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      render :index</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">end</code>
