@@ -11,5 +11,5 @@
 </p>
 
 <p>
-	<%= content_tag(:iframe, '',src: "http://www.google.com/maps/embed/v1/place?q=#{@place.street}&key=AIzaSyDHtrPEfp1lKjfBOozsX-SR6vGHsG5f9So", width: 600, height: 400) %>
+	<%= content_tag(:iframe, '',src: "http://www.google.com/maps/embed/v1/place?q=#{@place.street}&key=#{ENV['GOOGLE_API']}", width: 600, height: 400) %>
 </p>
