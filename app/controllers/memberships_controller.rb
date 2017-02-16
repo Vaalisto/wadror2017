@@ -1,6 +1,8 @@
 class MembershipsController < ApplicationController
+  before_action :set_membership, only: [:show, :edit, :update, :destroy]
+
 	def index
-    @membership = Membership.all
+    @memberships = Membership.all
   end
 
   # GET /memberships/1
@@ -10,7 +12,7 @@ class MembershipsController < ApplicationController
 
   def new
     @membership = Membership.new
-    @beer_clubs = BeerClub.all
+    @beer_clubs = BeerClub.all - current_user.beer_clubs
   end
 
   def edit    
@@ -18,20 +20,16 @@ class MembershipsController < ApplicationController
 
   def create
     @membership = Membership.new(membership_params)
-    @membership.user_id = current_user.id
-    bc = BeerClub.find_by id: @membership.beer_club_id
+    @membership.user = current_user
 
-    if bc.members.include? current_user
-      redirect_to beer_clubs_path, notice: "You can join only once!"    
-    else
-      respond_to do |format|
-        if @membership.save
-          format.html { redirect_to :back, notice: 'Membership was successfully created.' }
-          format.json { render json: @membership, status: :created, location: @membership }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @membership.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if not current_user.beer_clubs.include?  @membership.beer_club and @membership.save
+        format.html { redirect_to @membership.user, notice: "You have joined #{@membership.beer_club.name}" }
+        format.json { render :show, status: :created, location: @membership }
+      else
+        @beer_clubs = BeerClub.all - current_user.beer_clubs 
+        format.html { render :new }
+        format.json { render json: @membership.errors, status: :unprocessable_entity }
       end
     end
   end
