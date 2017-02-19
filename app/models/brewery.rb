@@ -18,4 +18,8 @@ class Brewery < ActiveRecord::Base
 		self.year = 2017
 		puts "changed year to #{year}"
 	end
+
+	def to_s
+		"#{name}"
+	end
 end

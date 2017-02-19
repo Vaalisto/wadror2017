@@ -1,5 +1,5 @@
 class Style < ActiveRecord::Base
-	has_many :beer
+	has_many :beers
 
 	def to_s
 		"#{name}"

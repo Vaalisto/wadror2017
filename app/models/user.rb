@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
 	has_many :ratings, dependent: :destroy
 	has_many :beers, through: :ratings
+	has_many :styles
 	has_many :memberships, dependent: :destroy
 	has_many :beer_clubs, through: :memberships
 
@@ -20,7 +21,8 @@ class User < ActiveRecord::Base
 
 	def favorite_style
 		return nil if ratings.empty?
-		ratings.joins(:beer).group('style').average('score').max_by{ |k, v| v}.first
+		style_id = ratings.joins(:beer).group(:style_id).average('score').max_by{ |k, v| v}.first
+		Style.find(style_id).name
 	end
 
 	def favorite_brewery
