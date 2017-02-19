@@ -8,11 +8,13 @@
 	<%= "Has made #{pluralize(@user.ratings.count, 'rating')}" %>
 </p>
 
+<% if @user.beer_clubs.any? %> 
 <p>
 	Member of <% @user.beer_clubs.each do |club| %>
-		<%= link_to club.name, beer_club_path(club.id) %>
-		<% end %>
+	<%= link_to club.name, beer_club_path(club.id) %>
+	<% end %>
 </p>
+<%end%>
 
 <p>
 	<h3>ratings</h3>
