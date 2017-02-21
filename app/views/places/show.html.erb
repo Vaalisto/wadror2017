@@ -10,6 +10,4 @@
 	<%= "#{@place.zip} #{@place.city}" %>
 </p>
 
-<p>
-	<%= content_tag(:iframe, '',src: "http://www.google.com/maps/embed/v1/place?q=#{@place.street}&key=#{ENV['GOOGLE_API']}", width: 600, height: 400) %>
-</p>
+<iframe src="<%= @place.url %>" width="600" height="400"></iframe>

@@ -3,17 +3,15 @@ class PlacesController < ApplicationController
   end
 
   def show
-    cached_places = Rails.cache.read(session[:last_city])
-    @place = cached_places.find{ |p| p.id == params[:id]}
+    @place = BeermappingApi.place_in(session['last_city'], params[:id])
   end
 
   def search
-    @places = BeermappingApi.places_in(params[:city])
-    if @places.empty?
-      redirect_to places_path, notice: "No locations in #{params[:city]}"
-    else
-      session[:last_city] = params[:city]
-      render :index
-    end
+    city = params[:city]
+    @places = BeermappingApi.places_in(city)
+    @weather = WeatherService.weather_for(city)
+    session['last_city'] = city
+
+    render :index    
   end
 end
