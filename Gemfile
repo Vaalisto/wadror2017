@@ -35,7 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
 
-
+gem 'bootstrap-sass'
 
 
 
@@ -60,10 +60,11 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'launchy'
-  gem 'simplecov', require: false
+  gem 'launchy'  
   gem 'webmock'
 end
+
+gem 'simplecov', require: false
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -72,5 +73,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'web-console', '~> 2.0'
+  gem 'rails_layout'
 end
 
