@@ -17,9 +17,9 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description, :size=>"100" %>
+    <%= f.text_area :description %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>
