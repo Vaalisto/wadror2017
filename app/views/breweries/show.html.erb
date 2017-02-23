@@ -1,5 +1,7 @@
-<h2>
-<%= @brewery.name %>
+<h2><%= @brewery.name %>
+  <% if not @brewery.active  %>
+    <span class="label label-info">retired</span>
+  <% end %>
 </h2>
 
 <p>
@@ -13,11 +15,11 @@
 	Number of beers <%= @brewery.beers.count %>
 </p>
 
-<p>
+<ul>
 	<% @brewery.beers.each do |beer| %>
-		<%= link_to beer.name, beer %>
+		<li><%= link_to beer.name, beer %></li>
 	<% end %>
-</p>
+</ul>
 
 <p>
 <% if @brewery.ratings.empty? %>
@@ -27,4 +29,7 @@
 <% end %>
 </p>
 
-<%= link_to 'Edit', edit_brewery_path(@brewery), :class => "btn btn-info" %>
+<% if current_user %>
+  <%= link_to 'Edit', edit_brewery_path(@brewery), :class => "btn btn-info" %>
+  <%= link_to 'Destroy', @brewery, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

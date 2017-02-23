@@ -4,11 +4,17 @@
 <ul>
  <% @ratings.each do |rating| %>
    <li>    		 
-   		<%= rating.to_s %> 
+   		<%= rating %> 
    		<%= link_to rating.user.username, rating.user %>
    </li>
  <% end %>
 </ul>
+
+<%= render 'top3list', breweries: @best_breweries %>
+
+<h2>Recent ratings</h2>
+
+<%= render 'recentlist', ratings: @recent %>
 
 <br>
 <%= link_to "New rating", new_rating_path, :class => "btn btn-primary" %>
