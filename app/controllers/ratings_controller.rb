@@ -1,9 +1,13 @@
 class RatingsController < ApplicationController
   def index
     @beers = Beer.all
-    @best_breweries = Rating.all.top_breweries
+    @best_beers = Beer.top 3
+    @best_users = User.top 3
+    @best_breweries = Brewery.top 3
+    @best_styles = Style.top 3
   	@ratings = Rating.all
     @recent = Rating.recent
+    @users = User.all
   	render :index
   end
 
