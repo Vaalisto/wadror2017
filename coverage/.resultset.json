@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/wadror/projekti/wadror2017/app/models/rating.rb": [
+      "/home/wadror/projekti/app/models/rating.rb": [
         1,
         1,
         1,
@@ -18,31 +18,40 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/helpers/application_helper.rb": [
+      "/home/wadror/projekti/app/helpers/application_helper.rb": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/wadror/projekti/app/helpers/beer_clubs_helper.rb": [
         1,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/helpers/beer_clubs_helper.rb": [
+      "/home/wadror/projekti/app/helpers/beers_helper.rb": [
         1,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/helpers/beers_helper.rb": [
+      "/home/wadror/projekti/app/helpers/breweries_helper.rb": [
         1,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/helpers/breweries_helper.rb": [
+      "/home/wadror/projekti/app/helpers/styles_helper.rb": [
         1,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/helpers/styles_helper.rb": [
+      "/home/wadror/projekti/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/helpers/users_helper.rb": [
-        1,
-        null
-      ],
-      "/home/wadror/projekti/wadror2017/app/models/beer.rb": [
+      "/home/wadror/projekti/app/models/beer.rb": [
         1,
         1,
         1,
@@ -62,23 +71,24 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/concerns/rating_average.rb": [
+      "/home/wadror/projekti/app/models/concerns/rating_average.rb": [
         1,
         1,
         1,
         13,
         47,
         null,
+        null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/concerns/top.rb": [
+      "/home/wadror/projekti/app/models/concerns/top.rb": [
         1,
         1,
         10,
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/brewery.rb": [
+      "/home/wadror/projekti/app/models/brewery.rb": [
         1,
         1,
         1,
@@ -110,7 +120,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/user.rb": [
+      "/home/wadror/projekti/app/models/user.rb": [
         1,
         1,
         1,
@@ -146,7 +156,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/styles_controller.rb": [
+      "/home/wadror/projekti/app/controllers/styles_controller.rb": [
         1,
         1,
         1,
@@ -223,7 +233,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/application_controller.rb": [
+      "/home/wadror/projekti/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -231,8 +241,8 @@
         1,
         null,
         1,
-        116,
-        78,
+        117,
+        79,
         null,
         null,
         1,
@@ -240,7 +250,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/style.rb": [
+      "/home/wadror/projekti/app/models/style.rb": [
         1,
         1,
         1,
@@ -254,7 +264,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/sessions_controller.rb": [
+      "/home/wadror/projekti/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -278,7 +288,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/users_controller.rb": [
+      "/home/wadror/projekti/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -357,20 +367,20 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/membership.rb": [
+      "/home/wadror/projekti/app/models/membership.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/beer_club.rb": [
+      "/home/wadror/projekti/app/models/beer_club.rb": [
         1,
         1,
         1,
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/beers_controller.rb": [
+      "/home/wadror/projekti/app/controllers/beers_controller.rb": [
         1,
         1,
         1,
@@ -457,7 +467,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/breweries_controller.rb": [
+      "/home/wadror/projekti/app/controllers/breweries_controller.rb": [
         1,
         1,
         1,
@@ -521,6 +531,15 @@
         0,
         0,
         null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
         null,
         null,
         1,
@@ -543,7 +562,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/lib/beermapping_api.rb": [
+      "/home/wadror/projekti/lib/beermapping_api.rb": [
         1,
         1,
         6,
@@ -576,7 +595,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/place.rb": [
+      "/home/wadror/projekti/app/models/place.rb": [
         1,
         1,
         6,
@@ -591,7 +610,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/lib/weather_service.rb": [
+      "/home/wadror/projekti/lib/weather_service.rb": [
         1,
         1,
         0,
@@ -601,7 +620,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/places_controller.rb": [
+      "/home/wadror/projekti/app/controllers/places_controller.rb": [
         1,
         1,
         null,
@@ -620,7 +639,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/ratings_controller.rb": [
+      "/home/wadror/projekti/app/controllers/ratings_controller.rb": [
         1,
         1,
         1,
@@ -665,7 +684,7 @@
         null,
         null
       ],
-      "/home/wadror/projekti/wadror2017/app/models/weather.rb": [
+      "/home/wadror/projekti/app/models/weather.rb": [
         0,
         0,
         0,
@@ -677,7 +696,7 @@
         0,
         0
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/beer_clubs_controller.rb": [
+      "/home/wadror/projekti/app/controllers/beer_clubs_controller.rb": [
         0,
         0,
         0,
@@ -760,7 +779,7 @@
         0,
         0
       ],
-      "/home/wadror/projekti/wadror2017/app/controllers/memberships_controller.rb": [
+      "/home/wadror/projekti/app/controllers/memberships_controller.rb": [
         0,
         0,
         0,
@@ -833,6 +852,6 @@
         0
       ]
     },
-    "timestamp": 1487940512
+    "timestamp": 1488056405
   }
 }
