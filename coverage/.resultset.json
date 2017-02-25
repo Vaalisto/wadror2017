@@ -248,6 +248,10 @@
         1,
         4,
         null,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/home/wadror/projekti/app/models/style.rb": [
@@ -381,6 +385,7 @@
         null
       ],
       "/home/wadror/projekti/app/controllers/beers_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -852,6 +857,6 @@
         0
       ]
     },
-    "timestamp": 1488056405
+    "timestamp": 1488059119
   }
 }
