@@ -30,5 +30,4 @@ class User < ActiveRecord::Base
 		return nil if ratings.empty?
 		Brewery.find(ratings.joins(:beer).group("brewery_id").average('score').max_by{ |k, v| v}.first).name
 	end
-
 end
