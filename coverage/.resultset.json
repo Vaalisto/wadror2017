@@ -153,10 +153,10 @@
         21,
         31,
         null,
-        null,
         null
       ],
       "/home/wadror/projekti/app/controllers/styles_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -241,8 +241,8 @@
         1,
         null,
         1,
-        117,
-        79,
+        139,
+        97,
         null,
         null,
         1,
@@ -276,10 +276,13 @@
         null,
         1,
         7,
+        null,
+        7,
+        0,
         7,
         6,
         6,
-        null,
+        1,
         1,
         null,
         null,
@@ -357,6 +360,15 @@
         null,
         0,
         null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
         null,
         null,
         1,
@@ -473,6 +485,7 @@
         null
       ],
       "/home/wadror/projekti/app/controllers/breweries_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -782,6 +795,7 @@
         0,
         0,
         0,
+        0,
         0
       ],
       "/home/wadror/projekti/app/controllers/memberships_controller.rb": [
@@ -857,6 +871,6 @@
         0
       ]
     },
-    "timestamp": 1488059119
+    "timestamp": 1488122105
   }
 }
