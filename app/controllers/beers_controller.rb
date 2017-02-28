@@ -20,8 +20,8 @@ class BeersController < ApplicationController
     if order == session[:last_order]
       @beers.reverse!      
     else
-      session[:last_order] = order
-    end
+      session[:last_order] = order      
+    end    
   end
 
   def list
