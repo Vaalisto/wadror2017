@@ -16,6 +16,12 @@ class BeersController < ApplicationController
       when 'brewery' then @beers.sort_by{ |b| b.brewery.name }
       when 'style' then @beers.sort_by{ |b| b.style.name }
     end
+
+    if order == session[:last_order]
+      @beers.reverse!      
+    else
+      session[:last_order] = order
+    end
   end
 
   # GET /beers/1

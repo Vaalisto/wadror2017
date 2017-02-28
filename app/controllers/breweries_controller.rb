@@ -20,6 +20,13 @@ class BreweriesController < ApplicationController
       when 'name' then @retired_breweries.sort_by{ |b| b.name }
       when 'year' then @retired_breweries.sort_by{ |b| b.year }
     end
+
+    if order == session[:last_order]
+      @active_breweries.reverse!
+      @retired_breweries.reverse!
+    else
+      session[:last_order] = order
+    end
   end
 
   # GET /breweries/1
@@ -94,13 +101,5 @@ class BreweriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
       params.require(:brewery).permit(:name, :year, :active)
-    end
-
-    def authenticate
-      admin_accounts = { "admin" => "secret", "pekka" => "beer", "arto" => "foobar", "matti" => "ittam"}
-      authenticate_or_request_with_http_basic do |username, password|
-        #username == "admin" and password = "secret"
-        admin_accounts[username]==password
-      end
-    end
+    end    
   end
