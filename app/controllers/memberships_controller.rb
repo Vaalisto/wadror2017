@@ -5,6 +5,13 @@ class MembershipsController < ApplicationController
     @memberships = Membership.all
   end
 
+  def confirm
+    @membership.confirmed = true
+    @membership.save
+
+    redirect_to :back, notice: "User's application is confirmed!"
+  end
+
   # GET /memberships/1
   # GET /memberships/1.json
   def show    
