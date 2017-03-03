@@ -70,12 +70,12 @@ describe "User" do
 
     it "favorite style and brewery are shown" do
       visit user_path(user)
-      expect(page).to_not have_content 'favorite style'
-      expect(page).to_not have_content 'favorite brewery'
+      expect(page).to_not have_content 'Favorite style'
+      expect(page).to_not have_content 'Favorite brewery'
       user.ratings << FactoryGirl.create(:rating, score: 10, beer:beer1, user:user)
       visit user_path(user)
-      expect(page).to have_content 'favorite style: Lager'
-      expect(page).to have_content 'favorite brewery: Koff'
+      expect(page).to have_content 'Favorite style: Lager'
+      expect(page).to have_content 'Favorite brewery: Koff'
 
     end
   end
