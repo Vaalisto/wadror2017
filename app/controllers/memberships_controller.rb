@@ -60,7 +60,13 @@ class MembershipsController < ApplicationController
       format.json { head :no_content }
     end
   end
- 
+
+  def accept_membership
+    membership = Membership.find(params[:id])
+    membership.update_attribute(:confirmed, true)
+
+    redirect_to :back, notice:"Applicant accepted"
+  end 
 
 
   private

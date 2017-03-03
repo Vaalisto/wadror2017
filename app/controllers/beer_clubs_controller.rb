@@ -12,6 +12,9 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs/1
   # GET /beer_clubs/1.json
   def show
+    @confirmed_memberships = Membership.confirmed.where(beer_club_id: @beer_club.id)
+    @unconfirmed_memberships = Membership.unconfirmed.where(beer_club_id: @beer_club.id)
+
     if current_user and current_user.beer_clubs.include? @beer_club
       @membership = Membership.where("user_id = ? and beer_club_id = ?", current_user.id, @beer_club.id).first
     else
