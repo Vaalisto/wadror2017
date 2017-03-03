@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-03-03T23:49:08+02:00">2017-03-03T23:49:08+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-03-04T00:15:51+02:00">2017-03-04T00:15:51+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -1605,7 +1605,7 @@
         <li class="missed" data-hits="0" data-linenumber="10">
           
           
-          <code class="ruby">    @beers = Beer.all</code>
+          <code class="ruby">    @beers = Beer.includes(:brewery, :style).all</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
@@ -4443,7 +4443,7 @@
         <li class="missed" data-hits="0" data-linenumber="7">
           
           
-          <code class="ruby">    @users = User.all</code>
+          <code class="ruby">    @users = User.includes(:ratings, :beers).all</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
