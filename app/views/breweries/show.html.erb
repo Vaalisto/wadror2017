@@ -1,3 +1,5 @@
+<% cache @brewery do %>
+
 <h2><%= @brewery.name %>
   <% if not @brewery.active  %>
   <span class="label label-info">retired</span>
@@ -22,16 +24,17 @@
 </ul>
 
 <p>
-  <%= link_to "change activity", toggle_activity_brewery_path(@brewery.id), method: :post, class: "btn btn-primary" %>
-</p>
-
-
-<p>
   <% if @brewery.ratings.empty? %>
   Brewery's beers has not yet been rated!
   <% else %>
   Has <%= pluralize @brewery.ratings.count, 'rating' %>, average <%= @brewery.average_rating %>
   <% end %>
+</p>
+
+<% end %>
+
+<p>
+  <%= link_to "change activity", toggle_activity_brewery_path(@brewery.id), method: :post, class: "btn btn-primary" %>
 </p>
 
 <%= edit_and_destroy_buttons(@brewery) %>
