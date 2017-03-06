@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	validates :username, uniqueness: true,
-						length: { in: 3..30 }
+	length: { in: 3..30 }
 	validates :password, length: { minimum: 4 }
 	validates :password, format: { with: /([A-Z].*\d)|(\d.*[A-Z].*)/, message: "should contain one number and one capital letter" }
 
@@ -31,12 +31,16 @@ class User < ActiveRecord::Base
 		Brewery.find(ratings.joins(:beer).group("brewery_id").average('score').max_by{ |k, v| v}.first).name
 	end
 
+	def self.most_active(n)
+		sorted_by_rating_in_desc_order = User.all.sort_by{ |u| -(u.ratings.count) }[0,n]
+	end 
+
 	def self.create_with_omniauth(auth)
-    create! do |user|    	
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.username = auth["info"]["nickname"]
-      user.password = user.password_confirmation = SecureRandom.urlsafe_base64(n=6)
-    end
-  end
+		create! do |user|    	
+			user.provider = auth["provider"]
+			user.uid = auth["uid"]
+			user.username = auth["info"]["nickname"]
+			user.password = user.password_confirmation = SecureRandom.urlsafe_base64(n=6)
+		end
+	end
 end

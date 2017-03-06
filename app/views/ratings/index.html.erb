@@ -1,5 +1,7 @@
 <h2>Rating statistics</h2>
 
+<% cache 'ratinglist', skip_digest: true, expires_in:2.minutes do %>
+
 <div class="row">
 	<div class="col-md-4">
 		<h3>Top beers</h3>
@@ -26,6 +28,8 @@
 <h3>Most active users</h3>
 
 <%= render 'activeusers', users: @users%>
+
+<% end %>
 
 <br>
 <%= link_to "New rating", new_rating_path, :class => "btn btn-primary" %>
