@@ -30,4 +30,14 @@ class User < ActiveRecord::Base
 		return nil if ratings.empty?
 		Brewery.find(ratings.joins(:beer).group("brewery_id").average('score').max_by{ |k, v| v}.first).name
 	end
+
+	def self.create_with_omniauth(auth)
+    create! do |user|    	
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.username = auth["info"]["nickname"]
+      user.password = "GitHub123"
+      user.password_confirmation = "GitHub123"
+    end
+  end
 end
