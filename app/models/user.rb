@@ -36,8 +36,7 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.username = auth["info"]["nickname"]
-      user.password = "GitHub123"
-      user.password_confirmation = "GitHub123"
+      user.password = user.password_confirmation = SecureRandom.urlsafe_base64(n=6)
     end
   end
 end
